@@ -5,9 +5,9 @@ import requests
 class TestRegister():
 
     def test_register(self):
-        username = 'luxi'
-        password = '123456'
-        email = '1442678679@qq.com'
+        username = '小米'
+        password = '123456aa'
+        email = '179@qq.com'
         r = requests.post(
             'http://127.0.0.1:5000/register',
             json={

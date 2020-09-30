@@ -136,6 +136,7 @@ class TestCaseApi(Resource):
 class LoginApi(Resource):
     def get(self):
         heyang.query.all()
+        # print(heyang.query.all())
         return {'hello': 'world'}
 
     def post(self):

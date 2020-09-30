@@ -11,6 +11,7 @@ from tests.base_testcase import BaseTestCase
 
 class TestTask(BaseTestCase):
     def test_task_post(self):
+        #获取当前的构建号
         pre = jenkins['testcase_01'].get_last_build().get_number()
         print(pre)
         r = requests.post(
@@ -24,13 +25,14 @@ class TestTask(BaseTestCase):
             else:
                 print('wait')
                 sleep(1)
+        #获取最后一次执行的构建号
         last = jenkins['testcase_01'].get_last_build().get_number()
         print(last)
         assert last == pre+1
-
+        
 
     def test_task_get(self):
-        '''获取所有构建任务信息'''
+        '''获取所有构建任务列表信息'''
         r = requests.get(
             'http://127.0.0.1:5000/task',
             headers={'Authorization': f'Bearer {self.token}'}
